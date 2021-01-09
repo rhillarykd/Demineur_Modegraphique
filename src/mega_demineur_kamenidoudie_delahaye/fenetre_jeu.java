@@ -51,7 +51,7 @@ public class fenetre_jeu extends javax.swing.JFrame {
                             if (Joueur.utiliserKitDem() == true){
                                 //if (Joueur.utiliserKitDem() == true && Case_choisie.activerKitDeminages() == true)
                                 Case_choisie.Visible = true;
-                                if (Case_choisie.activerBomb() == true) {
+                                if (Case_choisie.presenceBomb() == true) {
                                     message.setText(Joueur.Nom +" a désamorcé une bombe en utilisant un kit");
                                     NombreTtBomb--;
                                     Nb_Bombes.setText(NombreTtBomb+"");
@@ -85,7 +85,7 @@ public class fenetre_jeu extends javax.swing.JFrame {
                                 Case_choisie.Visible = false;
                                 return;
                             }
-                            if (Case_choisie.activerBomb() == true){
+                            if (Case_choisie.presenceBomb() == true){
                                 //Bbnumber.setText(Case_choisie.Bomb+"");
                                 /*if(Joueur.NbreKitDeminages > 0){
                                     Case_choisie.activerKitDeminages();
