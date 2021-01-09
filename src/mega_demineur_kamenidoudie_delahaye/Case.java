@@ -15,6 +15,7 @@ public class Case {
     boolean Drapeau;
     boolean KitDeminages;
     int BombNumber;
+    boolean Visible;
     
     // constructeur appelé a la création d'une case
     Case() {
@@ -22,6 +23,7 @@ public class Case {
         Drapeau = false;
         KitDeminages = false;
         BombNumber = 0;
+        Visible = false;
     }
     
     Boolean placerDrapeau(){
@@ -120,6 +122,13 @@ public class Case {
     Boolean recupererKitDeminages(){
         if(presenceKitDeminages() == true){
             KitDeminages = false;
+            return true;
+        }
+        return false;
+    }
+    
+    boolean CaseDecouverte() {
+        if (Visible == true) {
             return true;
         }
         return false;

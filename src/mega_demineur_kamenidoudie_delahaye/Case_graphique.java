@@ -36,37 +36,38 @@ public class Case_graphique extends JButton {
     @Override
     public void paintComponent(Graphics G) {
         super.paintComponent(G);
-        setIcon(img_case);
         
-        // on attribut l'image par defaut par l'image case
-        if (CaseAssociee.presenceDrapeau() == true) {
-            setIcon(img_drapeau);
-            //setIcon(img_case);// on attribut l'image du drapeau s il y a la presence de ce dernier
-        } else if (CaseAssociee.Bomb == true) {
-            setIcon(img_bombe);
-            //setIcon(img_case);
-        } else if (CaseAssociee.presenceKitDeminages() == true) {
-            setIcon(img_kit);
-            //setIcon(img_case);
-        } else if (CaseAssociee.NbreBombAutour() == 1) {
-            setIcon(img_case_1);
-            //setIcon(img_case);
-        } else if (CaseAssociee.NbreBombAutour() == 2) {
-            setIcon(img_case_2);
-            //setIcon(img_case);
-        } else if (CaseAssociee.NbreBombAutour() == 3) {
-            setIcon(img_case_3);
-            // setIcon(img_case);
-        } else if (CaseAssociee.NbreBombAutour() == 4) {
-            setIcon(img_case_4);
-            //setIcon(img_case);
-        } else if (CaseAssociee.NbreBombAutour() == 5) {
-            setIcon(img_case_5);
-            //setIcon(img_case);
-        } else if (CaseAssociee.NbreBombAutour() == 10 && CaseAssociee.presenceBomb() == false && CaseAssociee.presenceKitDeminages() == false && CaseAssociee.presenceDrapeau() == false) {
-            setIcon(img_case_vide);
+        if (CaseAssociee.CaseDecouverte() != true) {
+            setIcon(img_case);
+        } else {
+            // on attribut l'image par defaut par l'image case
+            if (CaseAssociee.presenceDrapeau() == true) {
+                setIcon(img_drapeau);
+                //setIcon(img_case);// on attribut l'image du drapeau s il y a la presence de ce dernier
+            } else if (CaseAssociee.Bomb == true) {
+                setIcon(img_bombe);
+                //setIcon(img_case);
+            } else if (CaseAssociee.presenceKitDeminages() == true) {
+                setIcon(img_kit);
+                //setIcon(img_case);
+            } else if (CaseAssociee.NbreBombAutour() == 1) {
+                setIcon(img_case_1);
+                //setIcon(img_case);
+            } else if (CaseAssociee.NbreBombAutour() == 2) {
+                setIcon(img_case_2);
+                //setIcon(img_case);
+            } else if (CaseAssociee.NbreBombAutour() == 3) {
+                setIcon(img_case_3);
+                // setIcon(img_case);
+            } else if (CaseAssociee.NbreBombAutour() == 4) {
+                setIcon(img_case_4);
+                //setIcon(img_case);
+            } else if (CaseAssociee.NbreBombAutour() == 5) {
+                setIcon(img_case_5);
+                //setIcon(img_case);
+            } else if (CaseAssociee.NbreBombAutour() == 10 && CaseAssociee.presenceBomb() == false && CaseAssociee.presenceKitDeminages() == false && CaseAssociee.presenceDrapeau() == false) {
+                setIcon(img_case_vide);
+            }
         }
-        
-        
     }
 }

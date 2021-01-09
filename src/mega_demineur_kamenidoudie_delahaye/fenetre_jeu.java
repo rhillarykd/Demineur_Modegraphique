@@ -50,6 +50,7 @@ public class fenetre_jeu extends javax.swing.JFrame {
                             //System.out.println("click gauche");
                             if (Joueur.utiliserKitDem() == true){
                                 //if (Joueur.utiliserKitDem() == true && Case_choisie.activerKitDeminages() == true)
+                                Case_choisie.Visible = true;
                                 if (Case_choisie.activerBomb() == true) {
                                     message.setText(Joueur.Nom +" a désamorcé une bombe en utilisant un kit");
                                     NombreTtBomb--;
@@ -58,6 +59,9 @@ public class fenetre_jeu extends javax.swing.JFrame {
                                         panneau_grille.setVisible(false);
                                         return;
                                     }
+                                }
+                                if (Case_choisie.BombNumber != 1 || Case_choisie.BombNumber != 2 || Case_choisie.BombNumber != 3 || Case_choisie.BombNumber != 4 || Case_choisie.BombNumber != 5) {
+                                    Case_choisie.BombNumber = 10;
                                 }
                                 Kit_deminage.setText(Joueur.NbreKitDeminages+"");
                                 //Case_choisie.BombNumber = 10;
@@ -71,12 +75,14 @@ public class fenetre_jeu extends javax.swing.JFrame {
                                     panneau_grille.setVisible(false);
                                     return;
                                 }
+                                Case_choisie.Visible = true;
                                 return;
                             }
                             if (Case_choisie.recupererDrapeau() == true){
                                 //if (Case_choisie.presenceDrapeau() == true && Case_choisie.recupererDrapeau() == true)
                                 Joueur.reprendreDrapeau();
                                 Nb_Drapeau.setText(Joueur.NbreDrapeau+"");
+                                Case_choisie.Visible = false;
                                 return;
                             }
                             if (Case_choisie.activerBomb() == true){
@@ -90,16 +96,19 @@ public class fenetre_jeu extends javax.swing.JFrame {
                                 if (Joueur.PerdreVie() == true) {
                                     //Case_choisie.BombNumber = 10;
                                     Vie.setText(Joueur.HP+"");
+                                    Case_choisie.Visible = true;
                                     message.setText(Joueur.Nom +" a touché une bombe et perdu une vie");
                                     NombreTtBomb--;
                                     Nb_Bombes.setText(NombreTtBomb+"");
                                 } else {
+                                    Case_choisie.Visible = true;
                                     message.setText(Joueur.Nom +" a perdu");
                                     panneau_grille.setVisible(false);
                                     Vie.setIcon(img_broken_heart);
                                     //Vie.setIcon(getScaledIcon(img_broken_heart+"", 100, 100));
                                     //Vie.setIcon(getScaledIcon("/images/broken_heart.png", 100, 100));
                                     //Vie.setImage(img_broken_heart.getImage().getScaledInstance(1,1,Image.SCALE_FAST));
+                                    return;
                                 }
                                 return;
                             }
@@ -108,11 +117,15 @@ public class fenetre_jeu extends javax.swing.JFrame {
                                 Joueur.obtenirKitDemi();
                                 Kit_deminage.setText(Joueur.NbreKitDeminages+"");
                                 message.setText(Joueur.Nom +" a trouvé un kit et l'a activé \nClickez sur une case non découverte pour l'utiliser");
-                                //Case_choisie.BombNumber = 10;
+                                Case_choisie.Visible = true;
+                                if (Case_choisie.BombNumber != 1 || Case_choisie.BombNumber != 2 || Case_choisie.BombNumber != 3 || Case_choisie.BombNumber != 4 || Case_choisie.BombNumber != 5) {
+                                    Case_choisie.BombNumber = 10;
+                                }
                                 if (etreGagnantePourJoueur(Joueur) == true) {
                                     panneau_grille.setVisible(false);
                                     return;
                                 }
+                                
                             }
                         }
                         if (e.getButton() == java.awt.event.MouseEvent.BUTTON3) {
@@ -121,6 +134,7 @@ public class fenetre_jeu extends javax.swing.JFrame {
                                 Nb_Drapeau.setText(Joueur.NbreDrapeau+"");
                                 message.setText(Joueur.Nom +" a placé un drapeau");
                             }
+                            Case_choisie.Visible = true;
                         }
                     }
                     @Override
@@ -188,46 +202,6 @@ public class fenetre_jeu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         message = new javax.swing.JTextArea();
         panneau_grille = new javax.swing.JPanel();
-        col_0 = new javax.swing.JButton();
-        col_1 = new javax.swing.JButton();
-        col_2 = new javax.swing.JButton();
-        col_3 = new javax.swing.JButton();
-        col_4 = new javax.swing.JButton();
-        col_5 = new javax.swing.JButton();
-        col_6 = new javax.swing.JButton();
-        col_7 = new javax.swing.JButton();
-        col_8 = new javax.swing.JButton();
-        col_9 = new javax.swing.JButton();
-        col_10 = new javax.swing.JButton();
-        col_11 = new javax.swing.JButton();
-        col_12 = new javax.swing.JButton();
-        col_13 = new javax.swing.JButton();
-        col_14 = new javax.swing.JButton();
-        col_15 = new javax.swing.JButton();
-        col_16 = new javax.swing.JButton();
-        col_17 = new javax.swing.JButton();
-        col_18 = new javax.swing.JButton();
-        col_19 = new javax.swing.JButton();
-        row_0 = new javax.swing.JButton();
-        row_1 = new javax.swing.JButton();
-        row_2 = new javax.swing.JButton();
-        row_3 = new javax.swing.JButton();
-        row_4 = new javax.swing.JButton();
-        row_5 = new javax.swing.JButton();
-        row_6 = new javax.swing.JButton();
-        row_7 = new javax.swing.JButton();
-        row_8 = new javax.swing.JButton();
-        row_9 = new javax.swing.JButton();
-        row_10 = new javax.swing.JButton();
-        row_11 = new javax.swing.JButton();
-        row_12 = new javax.swing.JButton();
-        row_13 = new javax.swing.JButton();
-        row_14 = new javax.swing.JButton();
-        row_15 = new javax.swing.JButton();
-        row_16 = new javax.swing.JButton();
-        row_17 = new javax.swing.JButton();
-        row_18 = new javax.swing.JButton();
-        row_19 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -424,251 +398,6 @@ public class fenetre_jeu extends javax.swing.JFrame {
         panneau_grille.setLayout(new java.awt.GridLayout(20, 20));
         getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 880, 900));
 
-        col_0.setText("1");
-        col_0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                col_0ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(col_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, 20));
-
-        col_1.setText("2");
-        getContentPane().add(col_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
-
-        col_2.setText("3");
-        col_2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                col_2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(col_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
-
-        col_3.setText("4");
-        getContentPane().add(col_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
-
-        col_4.setText("5");
-        getContentPane().add(col_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
-
-        col_5.setText("6");
-        getContentPane().add(col_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
-
-        col_6.setText("7");
-        col_6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                col_6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 40, -1));
-
-        col_7.setText("8");
-        getContentPane().add(col_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
-
-        col_8.setText("9");
-        getContentPane().add(col_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
-
-        col_9.setText("10");
-        getContentPane().add(col_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, -1));
-
-        col_10.setText("11");
-        col_10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                col_10ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(col_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, -1, -1));
-
-        col_11.setText("12");
-        getContentPane().add(col_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 20, -1, -1));
-
-        col_12.setText("13");
-        col_12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                col_12ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(col_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, -1, -1));
-
-        col_13.setText("14");
-        getContentPane().add(col_13, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
-
-        col_14.setText("15");
-        getContentPane().add(col_14, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, -1, -1));
-
-        col_15.setText("16");
-        getContentPane().add(col_15, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, -1, -1));
-
-        col_16.setText("17");
-        getContentPane().add(col_16, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, 50, -1));
-
-        col_17.setText("18");
-        getContentPane().add(col_17, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, -1, -1));
-
-        col_18.setText("19");
-        getContentPane().add(col_18, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, -1, -1));
-
-        col_19.setText("20");
-        getContentPane().add(col_19, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 20, -1, -1));
-
-        row_0.setText("1");
-        row_0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_0ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-
-        row_1.setText("2");
-        row_1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
-
-        row_2.setText("3");
-        row_2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-
-        row_3.setText("4");
-        row_3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
-
-        row_4.setText("5");
-        row_4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
-
-        row_5.setText("6");
-        row_5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
-
-        row_6.setText("7");
-        row_6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
-
-        row_7.setText("8");
-        row_7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_7ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
-
-        row_8.setText("9");
-        row_8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_8ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
-
-        row_9.setText("10");
-        row_9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_9ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
-
-        row_10.setText("11");
-        row_10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_10ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, -1, -1));
-
-        row_11.setText("12");
-        row_11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_11ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, -1, -1));
-
-        row_12.setText("13");
-        row_12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_12ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, -1));
-
-        row_13.setText("14");
-        row_13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_13ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 650, -1, -1));
-
-        row_14.setText("15");
-        row_14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_14ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 700, -1, -1));
-
-        row_15.setText("16");
-        row_15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_15ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 740, -1, -1));
-
-        row_16.setText("17");
-        row_16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_16ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 780, -1, -1));
-
-        row_17.setText("18");
-        row_17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_17ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 820, -1, -1));
-
-        row_18.setText("19");
-        row_18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_18ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 870, -1, -1));
-
-        row_19.setText("20");
-        row_19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                row_19ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(row_19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 910, -1, -1));
-
         setBounds(0, 0, 1205, 999);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -683,106 +412,6 @@ public class fenetre_jeu extends javax.swing.JFrame {
         Bouton_Partie.setEnabled(false);
         
     }//GEN-LAST:event_Bouton_PartieActionPerformed
-
-    private void col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_0ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_col_0ActionPerformed
-
-    private void col_10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_col_10ActionPerformed
-
-    private void col_12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_col_12ActionPerformed
-
-    private void row_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_0ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_0ActionPerformed
-
-    private void row_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_1ActionPerformed
-
-    private void row_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_2ActionPerformed
-
-    private void row_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_3ActionPerformed
-
-    private void row_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_4ActionPerformed
-
-    private void row_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_5ActionPerformed
-
-    private void row_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_6ActionPerformed
-
-    private void row_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_7ActionPerformed
-
-    private void row_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_8ActionPerformed
-
-    private void row_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_9ActionPerformed
-
-    private void row_10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_10ActionPerformed
-
-    private void row_11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_11ActionPerformed
-
-    private void row_12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_12ActionPerformed
-
-    private void row_13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_13ActionPerformed
-
-    private void row_14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_14ActionPerformed
-
-    private void row_15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_15ActionPerformed
-
-    private void row_16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_16ActionPerformed
-
-    private void row_17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_17ActionPerformed
-
-    private void row_18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_18ActionPerformed
-
-    private void row_19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_row_19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_row_19ActionPerformed
-
-    private void col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_col_2ActionPerformed
-
-    private void col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_col_6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_col_6ActionPerformed
 
     private void panneau_grilleMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panneau_grilleMouseReleased
         // TODO add your handling code here:
@@ -898,26 +527,6 @@ public class fenetre_jeu extends javax.swing.JFrame {
     private javax.swing.JLabel Nom_du_joueur;
     private javax.swing.JLabel Nom_joueur;
     private javax.swing.JLabel Vie;
-    private javax.swing.JButton col_0;
-    private javax.swing.JButton col_1;
-    private javax.swing.JButton col_10;
-    private javax.swing.JButton col_11;
-    private javax.swing.JButton col_12;
-    private javax.swing.JButton col_13;
-    private javax.swing.JButton col_14;
-    private javax.swing.JButton col_15;
-    private javax.swing.JButton col_16;
-    private javax.swing.JButton col_17;
-    private javax.swing.JButton col_18;
-    private javax.swing.JButton col_19;
-    private javax.swing.JButton col_2;
-    private javax.swing.JButton col_3;
-    private javax.swing.JButton col_4;
-    private javax.swing.JButton col_5;
-    private javax.swing.JButton col_6;
-    private javax.swing.JButton col_7;
-    private javax.swing.JButton col_8;
-    private javax.swing.JButton col_9;
     private javax.swing.JPanel info_joueur;
     private javax.swing.JPanel infos_partie;
     private javax.swing.JLabel jLabel1;
@@ -932,25 +541,5 @@ public class fenetre_jeu extends javax.swing.JFrame {
     private javax.swing.JTextArea message;
     private javax.swing.JPanel panneau_création_partie;
     private javax.swing.JPanel panneau_grille;
-    private javax.swing.JButton row_0;
-    private javax.swing.JButton row_1;
-    private javax.swing.JButton row_10;
-    private javax.swing.JButton row_11;
-    private javax.swing.JButton row_12;
-    private javax.swing.JButton row_13;
-    private javax.swing.JButton row_14;
-    private javax.swing.JButton row_15;
-    private javax.swing.JButton row_16;
-    private javax.swing.JButton row_17;
-    private javax.swing.JButton row_18;
-    private javax.swing.JButton row_19;
-    private javax.swing.JButton row_2;
-    private javax.swing.JButton row_3;
-    private javax.swing.JButton row_4;
-    private javax.swing.JButton row_5;
-    private javax.swing.JButton row_6;
-    private javax.swing.JButton row_7;
-    private javax.swing.JButton row_8;
-    private javax.swing.JButton row_9;
     // End of variables declaration//GEN-END:variables
 }
