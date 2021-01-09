@@ -25,7 +25,7 @@ public class Case {
     }
     
     Boolean placerDrapeau(){
-        if(Drapeau){
+        if(presenceDrapeau() == true){
             return false;
         }
         Drapeau = true;
@@ -34,7 +34,7 @@ public class Case {
 
 
     Boolean placerKitDeminages(){
-        if(KitDeminages){
+        if(presenceKitDeminages() == true){
             return false;
         }
         KitDeminages = true;
@@ -42,7 +42,7 @@ public class Case {
     }
     
     Boolean placerBomb(){
-        if(Bomb){
+        if(presenceBomb() == true){
             return false;
         }
         Bomb = true;
@@ -90,32 +90,39 @@ public class Case {
     }
     
     /*
-    Boolean recupererDrapeau(){
-        if(presenceDrapeau()){
-            Drapeau = false;
-            return true;
-        }
-        return false;
-    }
-    */
-    
-     Boolean activerKitDeminages(){
-        if(KitDeminages){
-           
+    Boolean activerKitDeminages(){
+        if (presenceKitDeminages() == true){
             KitDeminages = false;
             System.out.println("Un kit de déminages a été activé");
             return true;
         }
         return false;
     }
+    */
      
     int NbreBombAutour(){
-        if (!Bomb){
+        if (Bomb == false){
             return BombNumber;
         }
         return 0;
     }
-
-   
-     
+    
+    
+    
+    Boolean recupererDrapeau(){
+        if(presenceDrapeau() == true){
+            Drapeau = false;
+            return true;
+        }
+        return false;
+    }
+    
+    Boolean recupererKitDeminages(){
+        if(presenceKitDeminages() == true){
+            KitDeminages = false;
+            return true;
+        }
+        return false;
+    }
+    
 }

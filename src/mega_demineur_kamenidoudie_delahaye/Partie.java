@@ -214,6 +214,9 @@ public class Partie {
             if (resultatC1 == false) {
                 break;
             }
+            if (Joueur.HP == 0) {
+                break;
+            }
             resultatAction = false;
             GrilleJeu.afficherGrilleSurConsole();
         } while (GrilleJeu.etreGagnantePourJoueur(Listejoueurs[0]) != true);

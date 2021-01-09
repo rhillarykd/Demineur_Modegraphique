@@ -35,7 +35,7 @@ public class Joueur {
     }
     
     boolean PerdreVie (){
-        if(HP==0){
+        if(HP==1){
             return false;
         }
         HP--;
